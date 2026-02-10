@@ -59,7 +59,7 @@ const HeroSection = () => {
             </div>
             <div>
               <span className="text-xs font-medium text-label tracking-[0.15em] uppercase block mb-1">{t("hero.focus")}</span>
-              <span className="text-sm text-foreground">CI/CD · Docker · Kubernetes · Azure</span>
+              <span className="text-sm text-foreground">Kubernetes · CI/CD · Terraform · Docker · Azure · GCP</span>
             </div>
           </div>
         </motion.div>

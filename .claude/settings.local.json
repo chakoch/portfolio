@@ -4,7 +4,8 @@
       "WebFetch(domain:www.jaudat.se)",
       "Bash(npx tsc:*)",
       "Bash(curl:*)",
-      "Bash(lsof:*)"
+      "Bash(lsof:*)",
+      "Bash(npm run build:*)"
     ]
   }
 }

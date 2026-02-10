@@ -7,8 +7,8 @@ const AboutSection = () => {
   const stats = [
     { value: "10+", label: t("about.stat1") },
     { value: "Fora AB", label: t("about.stat2") },
-    { value: "Azure", label: "Cloud & DevOps" },
-    { value: ".NET", label: "C# & ASP.NET Core" },
+    { value: "Kubernetes", label: t("about.stat3") },
+    { value: "Azure & GCP", label: t("about.stat4") },
   ];
 
   return (
@@ -80,7 +80,7 @@ const AboutSection = () => {
               </div>
               <div>
                 <span className="text-white/50 text-xs uppercase tracking-wider">{t("about.lia.interest")}</span>
-                <p className="text-white mt-1">DevOps · Azure · CI/CD · Microservices</p>
+                <p className="text-white mt-1">DevOps · Kubernetes · Azure · CI/CD · Terraform</p>
               </div>
             </div>
           </div>

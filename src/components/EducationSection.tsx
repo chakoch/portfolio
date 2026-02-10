@@ -9,8 +9,8 @@ const EducationSection = () => {
       title: "DevOps Engineer",
       badge: t("edu.ongoing"),
       description: t("edu.devops.desc"),
-      tags: ["Docker", "Kubernetes", "Python", "Linux", "CI/CD", "IaC", "Bash", "Agile"],
-      date: "September 2025 - Juni 2027",
+      tags: ["Kubernetes", "Docker", "Terraform", "CI/CD", "GCP", "Python", "Linux", "IaC", "Bash", "Agile"],
+      date: t("edu.devops.date"),
       place: "Chas Academy, Stockholm",
     },
     {
@@ -18,7 +18,7 @@ const EducationSection = () => {
       badge: t("edu.internship"),
       description: t("edu.fora.desc"),
       tags: ["DevOps", "CI/CD", "Docker", "Azure", "Terraform", "Agile"],
-      date: "2026",
+      date: t("edu.fora.date"),
       place: "Fora AB, Stockholm",
     },
     {
@@ -26,15 +26,15 @@ const EducationSection = () => {
       badge: t("edu.completed"),
       description: t("edu.azure.desc"),
       tags: ["Azure", "Azure Functions", "AKS", "Active Directory", "CI/CD", "Git"],
-      date: "Februari 2025",
+      date: t("edu.azure.date"),
       place: t("edu.azure.place"),
     },
     {
-      title: "Webbutvecklare .NET",
+      title: t("edu.dotnet.title"),
       badge: t("edu.completed"),
       description: t("edu.dotnet.desc"),
       tags: ["C#", ".NET", "ASP.NET Core", "Entity Framework", "SQL", "REST API"],
-      date: "Augusti 2022 - Juni 2024",
+      date: t("edu.dotnet.date"),
       place: "Nackademin, Solna",
     },
   ];

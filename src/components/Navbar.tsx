@@ -13,6 +13,7 @@ const Navbar = () => {
     { label: t("nav.timeline"), href: "#timeline" },
     { label: t("nav.education"), href: "#education" },
     { label: t("nav.techstack"), href: "#stack" },
+    { label: t("nav.projects"), href: "#projects" },
     { label: t("nav.contact"), href: "#contact" },
   ];
 

@@ -2,112 +2,145 @@ import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { useI18n } from "@/i18n";
 
+type Lang = "se" | "en";
+type Translatable = Record<Lang, string>;
+
 interface TimelineEvent {
-  period: string;
+  period: Translatable;
   startDate: string;
   endDate: string;
-  title: string;
-  subtitle: string;
-  description: string;
-  bullets: string[];
+  title: Translatable;
+  subtitle: Translatable;
+  description: Translatable;
+  bullets: Translatable[];
   tags?: { label: string; emoji?: string }[];
 }
 
 const events: TimelineEvent[] = [
   {
-    period: "September 2025",
+    period: { se: "Sep 2025", en: "Sep 2025" },
     startDate: "2025-09",
     endDate: "2025-09",
-    title: "Starten",
-    subtitle: "DevOps-rollen & MakeThePlay",
-    description: "Påbörjade min DevOps-bana på Chas Academy. Första kursen fokuserade på DevOps-rollen i teknikbranschen.",
+    title: { se: "DevOps-rollen", en: "The DevOps Role" },
+    subtitle: { se: "Intro till DevOps (15 YH-poäng)", en: "Intro to DevOps (15 credits)" },
+    description: { se: "Startade min DevOps-utbildning på Chas Academy.", en: "Started my DevOps program at Chas Academy." },
     bullets: [
-      "Beskriva DevOps-rollen i systemutvecklingsprojekt och organisationer",
-      "Reflektera över DevOps-rollens syfte ur affärs- och entreprenörsperspektiv",
-      "Förklara hur moderna IT-system är uppbyggda",
-      "Förstå principer för CI/CD",
+      { se: "DevOps i organisationer", en: "DevOps in organizations" },
+      { se: "Teknikstackar och yrkesroller", en: "Tech stacks and roles" },
+      { se: "Intro till Python", en: "Intro to Python" },
+      { se: "Affärs- och teknikperspektiv", en: "Business and tech perspective" },
     ],
   },
   {
-    period: "Oktober - November 2025",
+    period: { se: "Okt–Nov 2025", en: "Oct–Nov 2025" },
     startDate: "2025-10",
     endDate: "2025-11",
-    title: "Python & Automation",
-    subtitle: "Systemutveckling & GinoNova",
-    description: "Python som kompletterande språk inom DevOps för automation. OOP, TDD/BDD och CI/CD-pipelines.",
+    title: { se: "Python", en: "Python" },
+    subtitle: { se: "Automation, OOP och CI/CD (15 YH-poäng)", en: "Automation, OOP and CI/CD (15 credits)" },
+    description: { se: "Python som verktyg för automation inom DevOps.", en: "Python as a tool for DevOps automation." },
     bullets: [
-      "Grundläggande datastrukturer & objektorienterad programmering",
-      "Test-Driven Development (TDD) och Behaviour-Driven Development (BDD)",
-      "Automatisering inför CI/CD och vanliga arbetsuppgifter",
-      "Grundläggande användning av Git för versionshantering",
+      { se: "Datastrukturer och OOP", en: "Data structures and OOP" },
+      { se: "TDD och BDD", en: "TDD and BDD" },
+      { se: "Automation inför CI/CD", en: "Automation for CI/CD" },
+      { se: "Versionshantering med Git", en: "Version control with Git" },
     ],
   },
   {
-    period: "November 2025 - Januari 2026",
+    period: { se: "Nov 2025–Jan 2026", en: "Nov 2025–Jan 2026" },
     startDate: "2025-11",
     endDate: "2026-01",
-    title: "Linux Administration",
-    subtitle: "Linux & Bash Scripting",
-    description: "Hantering och administration av Linuxbaserade system samt bash-script.",
+    title: { se: "Linux & Bash", en: "Linux & Bash" },
+    subtitle: { se: "Systemadmin och skriptning (50 YH-poäng)", en: "Sysadmin and scripting (50 credits)" },
+    description: { se: "Hantering och drift av Linuxbaserade system.", en: "Managing and operating Linux-based systems." },
     bullets: [
-      "Behärska Linux-system (användare, rättigheter, filstruktur)",
-      "Skriva och förstå bash-script för automation",
-      "Arbeta med Linux-distributioner i virtuella miljöer",
-      "Scriptspråk med fokus på systemsäkerhet och övervakning",
-      "Introduktion till containerteknik",
+      { se: "Användare, rättigheter, filstruktur", en: "Users, permissions, file structure" },
+      { se: "Bash-script för automation", en: "Bash scripts for automation" },
+      { se: "Övervakning och säkerhet", en: "Monitoring and security" },
+      { se: "Containerteknik i Linuxmiljö", en: "Container tech in Linux" },
     ],
   },
   {
-    period: "Januari - Februari 2026",
+    period: { se: "Jan–Feb 2026", en: "Jan–Feb 2026" },
     startDate: "2026-01",
     endDate: "2026-02",
-    title: "Databashantering",
-    subtitle: "SQL & Databasdesign",
-    description: "Grundläggande kunskaper i databasdesign, SQL och lagringslösningar.",
+    title: { se: "Databaser", en: "Databases" },
+    subtitle: { se: "SQL och databasdesign (30 YH-poäng)", en: "SQL and database design (30 credits)" },
+    description: { se: "Databasutveckling, SQL och databasdesign.", en: "Database development, SQL, and design." },
     bullets: [
-      "Grundläggande SQL-programmering",
-      "Databashanterare som SQLite och MySQL",
-      "Optimering av funktionalitet och prestanda",
-      "Databasdesign och relationsdatabaser",
-      "Utveckla databaslösningar med Python",
+      { se: "SQL och relationsdatabaser", en: "SQL and relational databases" },
+      { se: "SQLite och MySQL", en: "SQLite and MySQL" },
+      { se: "Optimering och prestanda", en: "Optimization and performance" },
+      { se: "Databaslösningar med Python", en: "Database solutions with Python" },
     ],
   },
   {
-    period: "Mars - Juni 2026",
-    startDate: "2026-03",
-    endDate: "2026-06",
-    title: "Cloud & Agila Metoder",
-    subtitle: "Kubernetes, IaC & Scrum",
-    description: "Molninfrastruktur, containerorkestrering, Infrastructure as Code samt agila metoder.",
+    period: { se: "Feb–Maj 2026", en: "Feb–May 2026" },
+    startDate: "2026-02",
+    endDate: "2026-05",
+    title: { se: "Agila metoder", en: "Agile Methods" },
+    subtitle: { se: "Scrum, Kanban och DevOps (20 YH-poäng)", en: "Scrum, Kanban and DevOps (20 credits)" },
+    description: { se: "Agila modeller i systemutvecklingsprojekt med CI/CD.", en: "Agile models in development projects with CI/CD." },
     bullets: [
-      "Kubernetes orchestration och deployment strategies",
-      "Infrastructure as Code med Terraform och Ansible",
-      "Agila metoder, Scrum och Kanban för teamarbete",
-      "Advanced CI/CD med GitHub Actions",
-      "Monitoring och observability i produktionsmiljö",
+      { se: "Scrum och Kanban", en: "Scrum and Kanban" },
+      { se: "Projektledning inom DevOps", en: "Project management in DevOps" },
+      { se: "CI/CD i agila processer", en: "CI/CD in agile processes" },
+      { se: "Leda DevOps-team", en: "Leading DevOps teams" },
+    ],
+  },
+  {
+    period: { se: "Feb–Jun 2026", en: "Feb–Jun 2026" },
+    startDate: "2026-02",
+    endDate: "2026-06",
+    title: { se: "DevOps", en: "DevOps" },
+    subtitle: { se: "Kubernetes och CI/CD (60 YH-poäng)", en: "Kubernetes and CI/CD (60 credits)" },
+    description: { se: "Utbildningens första stora DevOps-kurs.", en: "The program's first major DevOps course." },
+    bullets: [
+      { se: "Kubernetes orchestration", en: "Kubernetes orchestration" },
+      { se: "CI/CD: bygg, test, deploy", en: "CI/CD: build, test, deploy" },
+      { se: "Övervakning i produktion", en: "Monitoring in production" },
+      { se: "Docker och Kubernetes", en: "Docker and Kubernetes" },
     ],
     tags: [
-      { label: "Kubernetes", emoji: "☸️" },
-      { label: "Terraform/Ansible", emoji: "🏗️" },
-      { label: "Agila metoder", emoji: "🔄" },
+      { label: "Kubernetes", emoji: "📚" },
+      { label: "Docker", emoji: "📚" },
+      { label: "CI/CD", emoji: "📚" },
     ],
   },
   {
-    period: "November 2026 - Maj 2027",
+    period: { se: "Sep–Nov 2026", en: "Sep–Nov 2026" },
+    startDate: "2026-09",
+    endDate: "2026-11",
+    title: { se: "Fördjupning DevOps", en: "Advanced DevOps" },
+    subtitle: { se: "Kubernetes, IaC och CMT (60 YH-poäng)", en: "Kubernetes, IaC and CMT (60 credits)" },
+    description: { se: "Utbildningens andra stora DevOps-kurs.", en: "The program's second major DevOps course." },
+    bullets: [
+      { se: "Avancerad Kubernetes", en: "Advanced Kubernetes" },
+      { se: "Terraform och Ansible", en: "Terraform and Ansible" },
+      { se: "Configuration Management", en: "Configuration Management" },
+      { se: "Automation: kod till produktion", en: "Automation: code to production" },
+    ],
+    tags: [
+      { label: "Kubernetes", emoji: "📚" },
+      { label: "Terraform", emoji: "📚" },
+      { label: "Ansible", emoji: "📚" },
+    ],
+  },
+  {
+    period: { se: "Nov 2026–Maj 2027", en: "Nov 2026–May 2027" },
     startDate: "2026-11",
     endDate: "2027-05",
-    title: "LIA-praktik",
-    subtitle: "Söker LIA-plats",
-    description: "Söker praktikplats med fokus på DevOps, AI/ML eller infrastruktur.",
+    title: { se: "LIA-praktik", en: "Internship (LIA)" },
+    subtitle: { se: "Söker LIA-plats (120 YH-poäng)", en: "Seeking internship (120 credits)" },
+    description: { se: "Praktik som DevOps Engineer i skarpa projekt.", en: "Internship as a DevOps Engineer in real projects." },
     bullets: [
-      "6 månaders LIA med fokus på DevOps/Infrastructure",
-      "Söker i Stockholm eller remote",
-      "Intresse: DevOps · AI/ML · Cloud Infrastructure",
-      "Mål: Fastanställning efter avslutad LIA",
+      { se: "6 månaders praktik", en: "6-month internship" },
+      { se: "Stockholm eller remote", en: "Stockholm or remote" },
+      { se: "Kubernetes · DevOps · Cloud", en: "Kubernetes · DevOps · Cloud" },
+      { se: "Mål: Långsiktig anställning", en: "Goal: Long-term employment" },
     ],
     tags: [
-      { label: "Söker LIA", emoji: "🔍" },
-      { label: "Stockholm/Remote", emoji: "📍" },
+      { label: "Söker LIA", emoji: "🎯" },
+      { label: "Stockholm/Remote", emoji: "💼" },
     ],
   },
 ];
@@ -129,7 +162,7 @@ function getCurrentEventIndex(): number {
 }
 
 const TimelineSection = () => {
-  const { t } = useI18n();
+  const { lang, t } = useI18n();
   const defaultIndex = useMemo(() => getCurrentEventIndex(), []);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
@@ -206,7 +239,7 @@ const TimelineSection = () => {
                   <span className={`text-[9px] md:text-[10px] tracking-wider transition-colors whitespace-nowrap hidden sm:block ${
                     activeIndex === i ? "text-primary font-medium" : "text-muted-foreground group-hover:text-foreground"
                   }`}>
-                    {ev.period.length > 18 ? ev.period.split("-")[0].trim() : ev.period}
+                    {ev.period[lang].length > 18 ? ev.period[lang].split("–")[0].trim() : ev.period[lang]}
                   </span>
                   {i === defaultIndex && (
                     <span className="absolute -top-5 text-[9px] font-medium text-red-accent tracking-wider whitespace-nowrap">
@@ -220,7 +253,7 @@ const TimelineSection = () => {
         </motion.div>
 
         {/* Cards grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-5">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-8 gap-4 md:gap-5">
           {events.map((ev, i) => (
             <div
               key={i}
@@ -248,21 +281,21 @@ const TimelineSection = () => {
                 )}
 
                 <span className="text-[11px] font-medium tracking-wider uppercase block mb-2 text-muted-foreground">
-                  {ev.period}
+                  {ev.period[lang]}
                 </span>
 
                 <h4 className="font-display text-lg md:text-xl tracking-wide text-foreground leading-tight">
-                  {ev.title}
+                  {ev.title[lang]}
                 </h4>
                 <p className="text-xs mt-1 italic text-muted-foreground">
-                  {ev.subtitle}
+                  {ev.subtitle[lang]}
                 </p>
 
                 <ul className="mt-3 space-y-1.5">
                   {ev.bullets.slice(0, 2).map((b, j) => (
                     <li key={j} className="text-xs text-muted-foreground flex items-start gap-1.5">
                       <span className="text-primary mt-0.5 shrink-0">→</span>
-                      <span className="line-clamp-1">{b}</span>
+                      <span className="line-clamp-1">{b[lang]}</span>
                     </li>
                   ))}
                   {ev.bullets.length > 2 && (
@@ -301,20 +334,20 @@ const TimelineSection = () => {
                   )}
 
                   <span className="text-[11px] font-medium tracking-wider uppercase block mb-1.5 text-primary">
-                    {ev.period}
+                    {ev.period[lang]}
                   </span>
 
                   <h4 className="font-display text-xl tracking-wide text-foreground leading-tight">
-                    {ev.title}
+                    {ev.title[lang]}
                   </h4>
-                  <p className="text-xs text-primary mt-1 italic">{ev.subtitle}</p>
+                  <p className="text-xs text-primary mt-1 italic">{ev.subtitle[lang]}</p>
 
                   <div className="mt-3 pt-3 border-t border-border">
                     <ul className="space-y-1.5">
                       {ev.bullets.map((b, j) => (
                         <li key={j} className="text-xs text-muted-foreground flex items-start gap-1.5 leading-relaxed">
                           <span className="text-primary mt-px shrink-0">→</span>
-                          {b}
+                          {b[lang]}
                         </li>
                       ))}
                     </ul>
