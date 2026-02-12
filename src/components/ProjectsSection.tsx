@@ -35,8 +35,8 @@ const projects = [
   },
   {
     name: {
-      se: "Python Slutprojekt",
-      en: "Python Final Project",
+      se: "Python System Monitoring",
+      en: "Python System Monitoring",
     },
     description: {
       se: "Slutprojekt i systemutveckling med Python. Objektorienterad programmering, datastrukturer och automation.",
