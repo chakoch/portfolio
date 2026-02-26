@@ -46,6 +46,18 @@ const projects = [
     github: "https://github.com/chakoch/python-final",
   },
   {
+    name: {
+      se: "Databas Platform",
+      en: "Database Platform",
+    },
+    description: {
+      se: "Relationsdatabas i 3NF för en husdjursplattform, byggd med MariaDB och Docker Compose. Inkluderar triggers för automatisk auditloggning och ett Python CLI-verktyg för lagerstatus.",
+      en: "Relational database in 3NF for a pet platform, built with MariaDB and Docker Compose. Includes triggers for automatic audit logging and a Python CLI tool for warehouse inventory status.",
+    },
+    tags: ["MariaDB", "Docker", "Python", "SQL"],
+    github: "https://github.com/chakoch/platform-db",
+  },
+  {
     name: "GCP Infrastructure med Terraform",
     description: {
       se: "Infrastrukturprojekt i Google Cloud Platform med Terraform. Automatiserad uppsättning av molnresurser med Infrastructure as Code.",
