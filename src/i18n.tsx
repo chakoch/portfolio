@@ -20,8 +20,8 @@ const translations: Record<string, Record<Lang, string>> = {
   "hero.tag": { se: "DevOps Student", en: "DevOps Student" },
   "hero.cv": { se: "CURRICULUM VITAE", en: "CURRICULUM VITAE" },
   "hero.desc": {
-    se: "DevOps Engineer med fokus på Kubernetes, containerorkestrering och molninfrastruktur.\nPraktisk erfarenhet från CI/CD, Azure och .NET kombinerat med hands-on projekt i GCP och Terraform.",
-    en: "DevOps Engineer focused on Kubernetes, container orchestration, and cloud infrastructure.\nPractical experience in CI/CD, Azure, and .NET combined with hands-on projects in GCP and Terraform.",
+    se: "Studerande DevOps Engineer med praktisk erfarenhet från LIA hos Fora AB, där jag arbetade med Azure, CI/CD-pipelines, microservices och containerteknologi.\nStuderar på Chas Academy med fokus på Kubernetes, Docker, Infrastructure as Code och automatisering. Bakgrund inom .NET-utveckling och systemutveckling kompletterar en bred teknisk kompetens som sträcker sig från kod till produktion.",
+    en: "DevOps Engineering student with practical experience from an internship at Fora AB, working with Azure, CI/CD pipelines, microservices, and container technology.\nStudying at Chas Academy with focus on Kubernetes, Docker, Infrastructure as Code, and automation. A background in .NET development and systems engineering complements a broad technical skill set spanning from code to production.",
   },
   "hero.education": { se: "Utbildning", en: "Education" },
   "hero.focus": { se: "Fokus", en: "Focus" },
@@ -37,8 +37,8 @@ const translations: Record<string, Record<Lang, string>> = {
     en: "With over ten years of experience in team leadership, sales, and organizational work, I have built a strong foundation in structuring, leading, and delivering. Now I combine that experience with modern technology through an ongoing DevOps program at Chas Academy.",
   },
   "about.p2": {
-    se: "Min tekniska resa började med en tvåårig .NET-utbildning på Nackademin, där jag arbetade med C#, ASP.NET Core, Entity Framework och databashantering. Under min praktik på Fora AB fick jag arbeta hands-on med produktionsmiljöer: microservices i Azure, CI/CD-pipelines med Azure DevOps, PowerShell-automation och containerisering med Docker.",
-    en: "My technical journey started with a two-year .NET program at Nackademin, where I worked with C#, ASP.NET Core, Entity Framework, and database management. During my internship at Fora AB, I worked hands-on with production environments: microservices in Azure, CI/CD pipelines with Azure DevOps, PowerShell automation, and containerization with Docker.",
+    se: "Min tekniska resa började med en tvåårig .NET-utbildning på Nackademin, där jag arbetade med C#, ASP.NET Core, Entity Framework och databashantering. Parallellt arbetade jag deltid som systemutvecklare på Lucli AB med C# och .NET-baserade lösningar, API-utveckling och databasoptimering. Under min praktik på Fora AB fick jag arbeta hands-on med produktionsmiljöer: microservices i Azure, CI/CD-pipelines med Azure DevOps, PowerShell- och Python-automation och containerisering med Docker.",
+    en: "My technical journey started with a two-year .NET program at Nackademin, where I worked with C#, ASP.NET Core, Entity Framework, and database management. Alongside my studies, I worked part-time as a systems developer at Lucli AB with C# and .NET-based solutions, API development, and database optimization. During my internship at Fora AB, I worked hands-on with production environments: microservices in Azure, CI/CD pipelines with Azure DevOps, PowerShell and Python automation, and containerization with Docker.",
   },
   "about.p3": {
     se: "Just nu fördjupar jag mig i containerorkestrering med Kubernetes, Infrastructure as Code med Terraform och molnplattformar som Azure och Google Cloud Platform. Jag har även genomfört egna projekt med GCP och Terraform för att bygga och automatisera infrastruktur. Jag trivs i skärningspunkten mellan utveckling och drift, och drivs av att skapa stabila, automatiserade och skalbara lösningar.",
@@ -68,19 +68,19 @@ const translations: Record<string, Record<Lang, string>> = {
   "edu.completed": { se: "AVSLUTAD", en: "COMPLETED" },
   "edu.devops.date": { se: "September 2025 till Juni 2027", en: "September 2025 to June 2027" },
   "edu.devops.desc": {
-    se: "Tvåårig yrkeshögskoleutbildning på Chas Academy med fokus på containerorkestrering, CI/CD och molninfrastruktur. Utbildningen omfattar Kubernetes, Docker, Infrastructure as Code med Terraform, Python, Linux-administration, bash-skriptning, databashantering och agila metoder.",
-    en: "Two-year vocational education at Chas Academy focused on container orchestration, CI/CD, and cloud infrastructure. The program covers Kubernetes, Docker, Infrastructure as Code with Terraform, Python, Linux administration, bash scripting, database management, and agile methods.",
+    se: "Tvåårig yrkeshögskoleutbildning på Chas Academy med fokus på CI/CD, containerorkestrering, Infrastructure as Code och automationsdriven drift. Omfattar Python, Linux/Bash, Kubernetes, databashantering, agila metoder, testautomation, övervakning och konfigurationshantering. Fördjupning inom containertekniker, byggsystem, releasehantering och moln.",
+    en: "Two-year vocational education at Chas Academy focused on CI/CD, container orchestration, Infrastructure as Code, and automation-driven operations. Covers Python, Linux/Bash, Kubernetes, database management, agile methods, test automation, monitoring, and configuration management. Specialization in container technologies, build systems, release management, and cloud.",
   },
   "edu.fora.title": { se: "Praktik – DevOps Engineer", en: "Internship – DevOps Engineer" },
   "edu.fora.date": { se: "November 2023 till Oktober 2024", en: "November 2023 to October 2024" },
   "edu.fora.desc": {
-    se: "DevOps-praktik på Fora AB med fokus på CI/CD-pipelines, containerisering och molninfrastruktur. Arbete i tvärfunktionella team med automation och deployment.",
-    en: "DevOps internship at Fora AB focused on CI/CD pipelines, containerization, and cloud infrastructure. Working in cross-functional teams with automation and deployment.",
+    se: "Utvecklade skalbara företagslösningar med fokus på microservices-arkitektur. Implementerade och underhöll system med PowerShell och Python, automatiserade CI/CD-pipelines och utvecklade molnlösningar med Azure DevOps. Optimerade och övervakade Microsoft Azure-infrastruktur för ökad tillgänglighet och prestanda.",
+    en: "Developed scalable enterprise solutions focused on microservices architecture. Implemented and maintained systems with PowerShell and Python, automated CI/CD pipelines, and developed cloud solutions with Azure DevOps. Optimized and monitored Microsoft Azure infrastructure for improved availability and performance.",
   },
   "edu.azure.date": { se: "Februari 2025", en: "February 2025" },
   "edu.azure.desc": {
-    se: "Fördjupningskurs i Microsoft Azure med fokus på molnarkitektur och DevOps. Arbetade med Azure Functions, Active Directory, säkerhet och kostnadsoptimering.",
-    en: "Advanced course in Microsoft Azure focusing on cloud architecture and DevOps. Worked with Azure Functions, Active Directory, security, and cost optimization.",
+    se: "Fördjupade kunskaper i Azure Functions, Active Directory, säkerhet och kostnadsoptimering, samt praktisk erfarenhet av PaaS, IaaS, SaaS och Azure Kubernetes Service. Implementering av CI/CD-pipelines och versionshantering med Git för automatiserad distribution.",
+    en: "Advanced knowledge in Azure Functions, Active Directory, security, and cost optimization, along with practical experience in PaaS, IaaS, SaaS, and Azure Kubernetes Service. Implementation of CI/CD pipelines and version control with Git for automated deployment.",
   },
   "edu.dotnet.title": { se: "Webbutvecklare .NET", en: "Web Developer .NET" },
   "edu.dotnet.date": { se: "Augusti 2022 till Juni 2024", en: "August 2022 to June 2024" },

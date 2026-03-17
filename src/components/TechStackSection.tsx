@@ -21,6 +21,9 @@ const techs = [
   { name: "React", category: "Frontend", icon: "https://cdn.simpleicons.org/react/61DAFB" },
   { name: "SQL", category: "Databaser", icon: "https://cdn.simpleicons.org/mysql/4479A1" },
   { name: "Entity Framework", category: "ORM", icon: "https://cdn.simpleicons.org/dotnet/512BD4" },
+  { name: "GitLab", category: "CI/CD", icon: "https://cdn.simpleicons.org/gitlab/FC6D26" },
+  { name: "SQLite", category: "Databaser", icon: "https://cdn.simpleicons.org/sqlite/003B57" },
+  { name: "MySQL", category: "Databaser", icon: "https://cdn.simpleicons.org/mysql/4479A1" },
 ];
 
 const TechStackSection = () => {
